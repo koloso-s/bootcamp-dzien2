@@ -16,4 +16,16 @@ fn dodaj_wpis(wpis: String){
     WPISY.with(|wpisy|{
         wpisy.borrow_mut().push(wpis)
     });
+
+    // let zmienna:String = String::from("siema");
+    // let zmienna2 = &zmienna;
+    // zmienna2.as_mut();
+    // let zmienna3 = zmienna;
+}
+
+#[ic_cdk::query]
+fn odczytaj_wpisy() ->Vec<String>{
+    WPISY.with(|wpisy|{
+        wpisy.borrow().clone()
+    })
 }
